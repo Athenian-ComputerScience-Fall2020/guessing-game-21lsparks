@@ -23,7 +23,7 @@ for guesses in range(1, 6):
     if guess > target:
         print("Sorry! " +  str(guess) + " is too big!")
     elif guess < target:
-        print("Sorry! " + str(guess) " is too small")
+        print("Sorry! " + str(guess) + " is too small.")
     else:
         print("Great job! " + str(guess) + " is correct!")
         exit()
