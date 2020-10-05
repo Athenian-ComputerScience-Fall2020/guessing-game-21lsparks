@@ -9,21 +9,30 @@ Use this file to write an "open" version of the game (no test code or defined fo
 
 '''
 # Collaborators: 
-
+#tutor whats his name
 
 import random
-target = random.randint(0,10)
-print("Hi! Welcome to the Guessing Game. You have five guesses.")
-for guesses in range(1, 6):
+x = int(input("Hi! To start the Guessing Game, please pick a small number.  "))
+y = int(input("Great! Now a big one.  "))
+target = random.randint(x,y)
+print("Hi! Welcome to the Guessing Game. When you want to exit, print done.")
+guesses = 1
+while True:
     guess = input("What is your guess #" + str(guesses) + "? ")
     if guess == "done":
-        exit()
-    guess = int(guess)
+        break
+    try: 
+        guess = int(guess)
+    except: 
+        print("Whoops! That's not a number, you silly goose. Try again!")
     if guess > target:
         print("Sorry! " +  str(guess) + " is too big!")
     elif guess < target:
         print("Sorry! " + str(guess) + " is too small.")
     else:
         print("Great job! " + str(guess) + " is correct!")
-        exit()
-print("Game over! Sorry out of guesses!")
+        y = input("Do you want to play again? If yes, type Y ")
+        if y == "N": 
+            break
+    guesses = guesses + 1
+print("Game over! See you next time.")
