@@ -12,27 +12,32 @@ Use this file to write an "open" version of the game (no test code or defined fo
 #tutor whats his name
 
 import random
-x = int(input("Hi! To start the Guessing Game, please pick a small number.  "))
-y = int(input("Great! Now a big one.  "))
-target = random.randint(x,y)
 print("Hi! Welcome to the Guessing Game. When you want to exit, print done.")
-guesses = 1
 while True:
-    guess = input("What is your guess #" + str(guesses) + "? ")
-    if guess == "done":
+    x = int(input("To start, decide a range. First, pick a small number.  "))
+    y = int(input("Great! Now a big one.  "))
+    target = random.randint(x,y)
+    while True: 
+        guesses = 1
+        guess = input("What is your guess? ")
+        if guess == "done":
+            exit
+        try: 
+            guess = int(guess)
+            if guess > target:
+                print("Sorry! " +  str(guess) + " is too big!")
+
+            elif guess < target:
+                print("Sorry! " + str(guess) + " is too small.")
+
+            else:
+                print("Great job! " + str(guess) + " is correct!")
+                break
+        except: 
+            print("Whoops! That's not a number, you silly goose. Try again!")
+        guesses = guesses + 1
+    y = input("For a new game type Y. To exit type N. ")
+    if y == "N": 
         break
-    try: 
-        guess = int(guess)
-    except: 
-        print("Whoops! That's not a number, you silly goose. Try again!")
-    if guess > target:
-        print("Sorry! " +  str(guess) + " is too big!")
-    elif guess < target:
-        print("Sorry! " + str(guess) + " is too small.")
-    else:
-        print("Great job! " + str(guess) + " is correct!")
-        y = input("Do you want to play again? If yes, type Y ")
-        if y == "N": 
-            break
-    guesses = guesses + 1
+
 print("Game over! See you next time.")
