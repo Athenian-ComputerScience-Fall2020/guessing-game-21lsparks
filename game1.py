@@ -21,8 +21,8 @@ while True:
         guesses = 1
         guess = input("What is your guess? ")
         if guess == "done":
-            exit
-        try: 
+            exit()
+        try:
             guess = int(guess)
             if guess > target:
                 print("Sorry! " +  str(guess) + " is too big!")
@@ -33,7 +33,7 @@ while True:
             else:
                 print("Great job! " + str(guess) + " is correct!")
                 break
-        except: 
+        except:
             print("Whoops! That's not a number, you silly goose. Try again!")
         guesses = guesses + 1
     y = input("For a new game type Y. To exit type N. ")
