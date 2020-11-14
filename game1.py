@@ -17,11 +17,13 @@ while True:
     x = int(input("To start, decide a range. First, pick a small number.  "))
     y = int(input("Great! Now a big one.  "))
     target = random.randint(x,y)
+# This is the first part of the code. It asks the user for a range and then the random number generator makes a number in that range
     while True: 
         guesses = 1
         guess = input("What is your guess? ")
         if guess == "done":
             exit()
+        # This allows the user to exit prematurely if they wish
         try:
             guess = int(guess)
             if guess > target:
@@ -33,11 +35,13 @@ while True:
             else:
                 print("Great job! " + str(guess) + " is correct!")
                 break
+            # all of the above statements are the computers reactions to help the user reach the target number
         except:
             print("Whoops! That's not a number, you silly goose. Try again!")
+        # this is to ensure that a user knows if they input a typo, and so the program doesn't break
         guesses = guesses + 1
     y = input("For a new game type Y. To exit type N. ")
     if y == "N": 
         break
-
+# this allows the option to play again or be done
 print("Game over! See you next time.")
