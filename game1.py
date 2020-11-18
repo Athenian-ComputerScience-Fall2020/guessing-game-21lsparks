@@ -10,6 +10,7 @@ Use this file to write an "open" version of the game (no test code or defined fo
 '''
 # Collaborators: 
 #tutor whats his name
+#Claryse
 
 import random
 x = 0
