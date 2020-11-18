@@ -12,15 +12,23 @@ Use this file to write an "open" version of the game (no test code or defined fo
 #tutor whats his name
 
 import random
+x = 0
+y = 0
 print("Hi! Welcome to the Guessing Game. When you want to exit, print done.")
 while True:
-    x = int(input("To start, decide a range. First, pick a small number.  "))
-    y = int(input("Great! Now a big one.  "))
+    try:
+        x = int(input("To start, decide a range. First, pick a small number.  "))
+    except:
+        print("Not a number. We'll use zero instead")
+    try:
+        y = int(input("Great! Now a big one. "))
+    except:
+        print("Not a number. We'll use zero instead. ")
     target = random.randint(x,y)
 # This is the first part of the code. It asks the user for a range and then the random number generator makes a number in that range
     while True: 
         guesses = 1
-        guess = input("What is your guess? ")
+        guess = input("What is your guess? To exit, enter done: ")
         if guess == "done":
             exit()
         # This allows the user to exit prematurely if they wish
